@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 
+// 14. import useSelector ( 후크 사용 )
+import { useSelector } from 'react-redux';
+
 function App() {
+
+  // 15. useSelector --> store 내부 상태를 반환
+
+  // const state = useSelector((state) => state);
+  // console.log(state); --> store 내부 상태를 객체로 확인 가능.
+
+  // 보통 useSelector는 다음과 같은 방법으로 사용함.
+  const account = useSelector((state) => state.account);
+
+  console.log(account);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
 }

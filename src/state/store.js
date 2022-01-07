@@ -7,5 +7,5 @@ import reducers from './reducers/index.js';
 // 10. store 생성
 export const store = createStore(
     reducers,
-    {} // default state??
+    {} // default state
 )

@@ -4,9 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// 11. import Provider
+// 12. import store
+import { Provider } from 'react-redux'
+import { store } from './state/store.js';
+
+// 13. Provider를 통해 store를 App으로 전달
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={ store }>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
