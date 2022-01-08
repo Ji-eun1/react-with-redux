@@ -1,70 +1,89 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+▶ Redux의 장점
 
-## Available Scripts
+1. props를 사용할 필요가 없다.
 
-In the project directory, you can run:
+2. 상태관리가 용이하다.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+※ Reducer Data Flow
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Action
 
-### `npm test`
+Action Creator
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Action Type
 
-### `npm run build`
+Action Payload
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Dispatch
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Store
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+redux에서 데이터가 어떻게 흐르는지 예시를 통해 파악하고,
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+리덕스를 실제로 사용해보자.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+※ redux 데이터 흐름 예시
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+☞ 왕이 예금을 하려고 한다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+King ( He got 100 ) --> (Call) --> Servant --> Letter ( Deposit-요청, quantity-금액1 ) --> Pigeon ( Letter 전달 ) --> The Royal Bank ( Now, He got 101 )
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+☞ 왕이 출금을 하려고 한다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+King ( He got 101 ) --> (Call) --> Servant --> Letter ( Withdraw-요청, quantity-금액6 ) --> Pigeon ( Letter 전달 ) --> The Royal Bank ( Now, He got 95 )
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+▶ Redux Data Flow ( 결론 )
 
-### Making a Progressive Web App
+King = UI ( 사용자에게 보이는 반응 앱. 즉 돈을 입금하거나 출금하기 위한 클릭 버튼 )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Servant = Action Creator ( 버튼을 누르면 액션 생성자는 입금 / 출금과 관련된 함수를 호출한다. )
 
-### Advanced Configuration
+Letter = Action ( type / payLoad 등 즉, 입금 / 출금 요청 및 금액 정보를 담고있다. )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Dispatch = Pigeon ( 정보 전달 )
 
-### Deployment
+Store = Bank ( Action을 읽고 해석할 수 있으며 유저의 요청을 따라 데이터를 업데이트하는 역할 )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* 결론
+King ( UI ) --> Servant ( Action Creator ) --> Letter ( Action ) --> Pigeon ( Dispatch ) --> Store ( Banker )
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+※ Store & Reducers
+
+Store = 은행 ( 즉, 데이터가 저장되는 곳 )
+
+Reducer = 뱅커 ( 요청에 따라 데이터를 변경하여 리턴 )
+
+
+※ redux 사용해보기
+
+1. npm install redux react-redux 터미널에 입력
+
+2. package.json에서 redux가 제대로 설치되었는지 확인하기
+
+3. 저장소 만들기
+
+▶ comebileReducers
+
+: https://runebook.dev/ko/docs/redux/combinereducers
+
+4. Provider
+
+▶ useSelector
+
+: https://velog.io/@seongkyun/useSelector-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+
+: https://blog.woolta.com/categories/1/posts/200
+
+5. Action Creators
+
+6. thunk 설치.
+
+
