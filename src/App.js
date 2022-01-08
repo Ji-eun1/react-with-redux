@@ -22,13 +22,11 @@ function App() {
   // 21. 모든 actionCreators들에 dispatch 전달
   const { depositMoney, withdrawMoney } = bindActionCreators(actionCreators, dispatch);
 
-  console.log(withdrawMoney);
-
   return (
     <div className="App">
       <h1>{ account }</h1>
-      <button onClick={() => depositMoney(1000)}>Deposit</button>
-      <button onClick={() => withdrawMoney(1000)}>Withdraw-</button>
+      <button onClick={() => depositMoney(1000)}>+</button>
+      <button onClick={() => withdrawMoney(1000)}>-</button>
     </div>
   );
 }
